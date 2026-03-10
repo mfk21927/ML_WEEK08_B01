@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Iris Model Predictor</h2>
+    <form action="/predict" method="post" id="mlForm">
+        <p>Enter 4 features (comma separated):</p>
+        <input type="text" id="features" placeholder="e.g., 5.1, 3.5, 1.4, 0.2">
+        <button type="submit">Predict</button>
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        document.getElementById('mlForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const rawInput = document.getElementById('features').value;
+            const features = rawInput.split(',').map(Number);
+            
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({features: features})
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = 'Prediction: ' + JSON.stringify(data);
+        };
+    </script>
+</body>
+</html>
