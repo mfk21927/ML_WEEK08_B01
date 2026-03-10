@@ -1,0 +1,32 @@
+# Database
+*.db
+instance/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.env
+venv/
+.venv/
+
+# Model files (optional - uncomment if models are too large)
+# *.tflite
+# *.pkl
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
